@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Backend [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven">
+    <MavenSettings>
+      <option name="myGeneralSettings" />
+      <option name="myRunnerSettings" />
+      <option name="myParameters">
+        <MavenTasksAndConfigsSettings>
+          <option name="myWorkingDirPath" value="$PROJECT_DIR$/backend" />
+          <option name="myGoals" value="spring-boot:run" />
+        </MavenTasksAndConfigsSettings>
+      </option>
+    </MavenSettings>
+    <method v="2" />
+  </configuration>
+</component>

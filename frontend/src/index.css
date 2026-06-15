@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: #080402;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ── Dot-grid background ──────────────────────────── */
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(245,158,11,0.14) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ── Keyframes ────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-16px); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(245,158,11,0.55); }
+  70%  { box-shadow: 0 0 0 22px rgba(245,158,11,0); }
+  100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(60px, -50px) scale(1.1); }
+  66%       { transform: translate(-35px, 30px) scale(0.9); }
+}
+@keyframes score-pop {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+/* ── Animation classes ────────────────────────────── */
+.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-spin-slow  { animation: spin-slow 8s linear infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.55s ease both; }
+.animate-pulse-ring { animation: pulse-ring 2.5s infinite; }
+.animate-orb        { animation: orb-drift 18s ease-in-out infinite; }
+.animate-score-pop  { animation: score-pop 0.7s cubic-bezier(.4,0,.2,1) both; }
+
+/* ── Glass surfaces ───────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(245,158,11,0.14);
+}
+.glass-vivid {
+  background: linear-gradient(135deg,
+    rgba(245,158,11,0.07) 0%,
+    rgba(244,63,94,0.03)  100%);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(245,158,11,0.22);
+}
+
+/* ── Text gradients ───────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #fcd34d, #f59e0b 45%, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-rose {
+  background: linear-gradient(135deg, #fda4af, #f43f5e, #e11d48);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Shimmer CTA button ───────────────────────────── */
+.shimmer-btn {
+  background: linear-gradient(90deg, #d97706, #be185d, #d97706);
+  background-size: 200%;
+  animation: shimmer 2.5s linear infinite;
+  box-shadow: 0 0 24px rgba(217,119,6,0.45), 0 0 48px rgba(190,24,93,0.15);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+.shimmer-btn:hover {
+  box-shadow: 0 0 36px rgba(217,119,6,0.65), 0 0 72px rgba(190,24,93,0.3);
+}
+
+/* ── Card hover lift ──────────────────────────────── */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245,158,11,0.42) !important;
+  box-shadow: 0 16px 48px rgba(217,119,6,0.18), 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* ── Score ring ───────────────────────────────────── */
+.score-ring-track { stroke: #1c0e02; }
